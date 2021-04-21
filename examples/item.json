@@ -1,67 +1,62 @@
 {
-  "stac_version": "1.0.0-rc.1",
-  "stac_extensions": [
-    "https://stac-extensions.github.io/template/v1.0.0/schema.json"
-  ],
-  "type": "Feature",
-  "id": "item",
-  "bbox": [
-    172.9,
-    1.3,
-    173,
-    1.4
-  ],
-  "geometry": {
-    "type": "Polygon",
-    "coordinates": [
-      [
-        [
-          172.9,
-          1.3
-        ],
-        [
-          173,
-          1.3
-        ],
-        [
-          173,
-          1.4
-        ],
-        [
-          172.9,
-          1.4
-        ],
-        [
-          172.9,
-          1.3
-        ]
+   "id":"example-collection_key",
+   "stac_version":"1.0.0-beta.2",
+   "stac_extensions":[
+     "https://raw.githubusercontent.com/aliasmrchips/io-stac-extension/main/json-schema/schema.json" 
+   ],
+   "type":"Feature",
+   "geometry":{
+      "type":"Polygon",
+      "coordinates":[
+         [
+            [
+               -8,
+               30
+            ],
+            [
+               -8,
+               0
+            ],
+            [
+               24,
+               0
+            ],
+            [
+               24,
+               30
+            ],
+            [
+               -8,
+               30
+            ]
+         ]
       ]
-    ]
-  },
-  "properties": {
-    "datetime": "2020-12-11T22:38:32Z",
-    "template:new_field": "test",
-    "template:xyz": {
-      "x": 1,
-      "y": 2,
-      "z": 3
-    },
-    "template:another_one": [
-      1,
-      2,
-      3
-    ]
-  },
-  "links": [
-    {
-      "href": "https://example.com/examples/item.json",
-      "rel": "self"
-    }
-  ],
-  "assets": {
-    "data": {
-      "href": "https://example.com/examples/file.xyz",
-      "template:new_field": "test"
-    }
-  }
+   },
+   "bbox":[
+      -8,
+      0,
+      24,
+      30
+   ],
+   "links":[
+      
+   ],
+   "assets":{
+      "composite":{
+         "href":"",
+         "title":null,
+         "description":null,
+         "roles":[
+            
+         ],
+         "type":"image/tiff; application=geotiff; profile=cloud-optimized"
+      }
+   },
+   "collection":"example-collection",
+   "properties":{
+      "io:key":"key",
+      "datetime":null,
+      "end_datetime":"2021-01-01",
+      "start_datetime":"2020-01-01"
+   }
 }
