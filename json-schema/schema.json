@@ -1,11 +1,10 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema#", 
   "$id": "https://stac-extensions.github.io/template/v1.0.0/schema.json#",
-  "title": "Template Extension",
-  "description": "STAC Template Extension for STAC Items and STAC Collections.",
+  "title": "Impact Observatory",
+  "description": "STAC Template Extension for Impact Observatory STAC Items and STAC Collections.",
   "oneOf": [
     {
-      "$comment": "This is the schema for STAC Items. Remove this object if this extension only applies to Collections.",
       "allOf": [
         {
           "type": "object",
@@ -21,9 +20,8 @@
             "properties": {
               "allOf": [
                 {
-                  "$comment": "Require fields here for item properties.",
                   "required": [
-                    "template:new_field"
+                    "io:key"
                   ]
                 },
                 {
@@ -45,7 +43,6 @@
       ]
     },
     {
-      "$comment": "This is the schema for STAC Collections. Remove this object if this extension does not define top-level fields for Collections AND can't be used in collection assets or item asset defintions.",
       "allOf": [
         {
           "type": "object",
@@ -72,10 +69,6 @@
         },
         {
           "$ref": "#/definitions/stac_extensions"
-        },
-        {
-          "$comment": "Remove this object if this extension does not define top-level fields for Collections.",
-          "$ref": "#/definitions/fields"
         }
       ]
     }
@@ -96,32 +89,24 @@
       }
     },
     "fields": {
-      "$comment": "Add your new fields here. Don't require them here, do that above in the item schema.",
       "type": "object",
       "properties": {
-        "template:new_field": {
+        "io:key": {
           "type": "string"
         },
-        "template:xyz": {
-          "type": "object",
-          "required": [
-            "x",
-            "y",
-            "z"
-          ],
-          "properties": {
-            "x": {
-              "type": "number"
-            },
-            "y": {
-              "type": "number"
-            },
-            "z": {
-              "type": "number"
-            }
-          }
-        }, 
-        "template:another_one": {
+        "io:data_type": {
+          "type": "string"
+        },
+        "io:category_map": {
+          "type": "object"
+        },
+        "io:nodata": {
+          "type": "number"
+        },
+        "io:bins": {
+          "type": "number"
+        },
+        "io:range": {
           "type": "array", 
           "items": {
             "type": "number"
@@ -129,9 +114,7 @@
         }
       },
       "patternProperties": {
-        "^(?!template:)": {
-          "$comment": "Above, change `template` to the prefix of this extension"
-        }
+        "^(?!io:)": {}
       },
       "additionalProperties": false
     }
